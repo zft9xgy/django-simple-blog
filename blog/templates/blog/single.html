@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %} {% load static %}
+
+<!-- -->
+{% block content %}
+<div class="s-content">
+  <div class="row row-x-center">
+    <div id="main" class="s-content__main large-8 column">
+      <article class="entry">
+        <header class="entry__header">
+          <h2 class="entry__title h1">
+            <a href="{% url 'single' post.slug %}" title="">{{post.title}}</a>
+          </h2>
+
+          <div class="entry__meta">
+            <ul>
+              <li>{{ post.created_date }}</li>
+              <li>{{ post.author.username }}</li>
+            </ul>
+          </div>
+        </header>
+        <!-- entry__header -->
+
+        <div class="entry__content-media">
+          <!--
+          <img
+            src="{% static 'images/wheel-500.jpg' %}"
+            srcset="{% static 'images/wheel-1000.jpg' %} 1000w, {% static 'images/wheel-500.jpg' %} 500w"
+            sizes="(max-width: 1000px) 100vw, 1000px"
+            alt=""
+          />
+          -->
+        </div>
+
+        <div class="entry__content">
+          <p class="lead">Extracto del articilo.</p>
+
+          <p>{{post.content | markdown | safe}}</p>
+        </div>
+        <!-- entry__content -->
+
+        <p class="entry__tags">
+          <span>Tagged in </span>:
+          <!-- -->
+          {% for tag in post.tags.all %}
+          <!-- -->
+          <a href="{% url 'tag-view' tag.slug %}">{{tag.name}}</a>,
+          <!-- -->
+          {% endfor %}
+        </p>
+      </article>
+      <!-- end entry -->
+    </div>
+    <!-- end main -->
+  </div>
+  <!-- end row -->
+</div>
+
+{% endblock %}

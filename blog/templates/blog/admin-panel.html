@@ -1,0 +1,101 @@
+{% extends 'base/base.html' %} {% load static %}
+
+<!-- -->
+{% block content %}
+<div class="s-content">
+  <div class="row row-x-center">
+    <div id="main" class="s-content__main large-12 column">
+      <h1>Admin panel</h1>
+      <ul>
+        <li><a href="{% url 'create-single' %}">Crear nueva entrada</a></li>
+        <li><a href="{% url 'create-tag' %}">Crear nueva etiqueta</a></li>
+      </ul>
+
+      <h2>Entradas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Slug</th>
+            <th>Tags</th>
+            <th>Status</th>
+            <th>Preview</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for post in posts %}
+          <tr>
+            <td>{{post.author}}</td>
+            <td>{{post.title}}</td>
+            <td>{{post.slug}}</td>
+            <td>
+              {% for tag in post.tags.all %}
+              <!-- -->
+              {{tag.name}},
+              <!-- -->
+              {% endfor %}
+            </td>
+            <td>{{post.status}}</td>
+            <td><a href="{% url 'single' post.slug %}">Ver</a></td>
+            <td><a href="{% url 'edit-single' post.slug %}">Editar</a></td>
+            <td><a href="{% url 'delete-single' post.slug %}">Eliminar</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h2>Usuarios</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>username</th>
+            <th>email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for profile in profiles %}
+          <tr>
+            <td>{{profile.user.first_name}}</td>
+            <td>{{profile.username}}</td>
+            <td>{{profile.user.email}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h2>Etiquetas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Slug</th>
+            <th>Posts</th>
+            <th>Ver</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for tag in tags %}
+          <tr>
+            <td>{{tag.name}}</td>
+            <td>{{tag.slug}}</td>
+            <td>Posts:({{tag.posts.count}})</td>
+            <td><a href="{% url 'tag-view' tag.slug %}">Ver</a></td>
+            <td><a href="{% url 'edit-tag' tag.slug %}">Editar</a></td>
+            <td><a href="{% url 'delete-tag' tag.slug %}">Eliminar</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <!-- end main -->
+  </div>
+  <!-- end row -->
+</div>
+
+{% endblock %}

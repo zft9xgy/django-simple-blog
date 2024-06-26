@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html class="no-js" lang="en">
+  {% include 'base/head.html' %}
+
+  <body id="top" class="ss-single">
+    {% include 'base/header.html' %}
+
+    <!-- -->
+    {% if messages %}
+    <!-- -->
+    <div class="row row-x-center">
+      {% for message in messages %}
+      <div class="large-8 alert-box alert-box--{{message.tags}} hideit">
+        <p>{{message}}</p>
+        <i class="fa fa-times alert-box__close" aria-hidden="true"></i>
+      </div>
+    </div>
+    <!-- -->
+    {% endfor %}
+    <!-- -->
+    {% endif %}
+    <!-- -->
+    {% block content %}
+    <!-- -->
+    {% endblock content %}
+    <!-- -->
+    {% include 'base/footer.html' %}
+    <!-- -->
+    {% include 'base/foot.html' %}
+  </body>
+</html>

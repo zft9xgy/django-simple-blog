@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html class="no-js" lang="es">
+  {% include 'base/head.html' %}
+  <body id="top">
+    <!-- Header
+    ================================================== -->
+    {% include 'base/header.html' %}
+    <!-- Content
+    ================================================== -->
+    <div class="s-content">
+      <div class="row row-x-center">
+        <div class="tag-wrapper column large-10">
+          <h1 class="tag-title">#{{tag.name}}</h1>
+        </div>
+        <div id="main" class="s-content__main large-8 column">
+          {% for post in posts %}
+          <article class="entry">
+            <header class="entry__header">
+              <h2 class="entry__title h1">
+                <a href="{% url 'single' post.slug %}" title="{{post.slug}}"
+                  >{{post.title}}</a
+                >
+              </h2>
+
+              <div class="entry__meta">
+                <ul>
+                  <li>{{post.created_date}}</li>
+                  {% for tag in post.tags.all %}
+                  <li>
+                    <a href="#" title="" rel="tag">{{tag.name}}</a>
+                  </li>
+                  {% endfor %}
+                  <li>{{post.author.username}}</li>
+                </ul>
+              </div>
+            </header>
+
+            <div class="entry__content">
+              <p>{{post.content | slice:"200" | safe }}</p>
+            </div>
+          </article>
+          {% endfor %}
+          <!-- end entry -->
+        </div>
+        <!-- end main -->
+        <!-- sidebar -->
+        <!-- end sidebar -->
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end content-wrap -->
+
+    {% include 'base/footer.html' %}
+
+    <!-- Java Script
+    ================================================== -->
+    {% include 'base/foot.html' %}
+  </body>
+</html>

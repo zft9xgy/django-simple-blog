@@ -1,0 +1,44 @@
+{% load static %}
+
+<header class="s-header">
+  <div class="row row-x-center">
+    <div class="s-header__content column">
+      <p class="s-header__logotext">
+        <a href="{% url 'home' %}" title="">{{global.websiteTitle}}</a>
+      </p>
+      <p class="s-header__tagline">{{global.websiteTagline}}</p>
+    </div>
+  </div>
+  <!-- end row -->
+
+  <nav class="s-header__nav-wrap">
+    <div class="row row-x-center">
+      <ul class="s-header__nav">
+        <li class="current"><a href="{% url 'home' %}">Home</a></li>
+        <li class="has-children">
+          <a href="">Tags</a>
+          <ul>
+            {% for tag in global.menuTags %}
+            <li><a href="{% url 'tag-view' tag.slug %}">{{tag.name}}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+        <li class="">
+          <a href="{% url 'blog' %}">Blog</a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url 'admin-panel' %}">Admin panel</a></li>
+        <li><a href="/admin/">Djando admin</a></li>
+        <li><a href="{% url 'user-logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'user-login' %}">Login</a></li>
+        {% endif %}
+      </ul>
+      <!-- end #nav -->
+    </div>
+  </nav>
+  <!-- end #nav-wrap -->
+
+  <a class="header-menu-toggle" href="#0" title="Menu"><span>Menu</span></a>
+</header>
+<!-- Header End -->
