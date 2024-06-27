@@ -4,12 +4,12 @@ from blog.models import Profile, Post, Tag  # Aseg√∫rate de que el nombre del m√
 import uuid
 
 # Crear usuarios de prueba
-user1 = User.objects.create_user(username='dev_guru', password='password123')
-user2 = User.objects.create_user(username='marketing_master', password='password123')
+#user1 = User.objects.create_user(username='dev_guru', password='password123')
+#user2 = User.objects.create_user(username='marketing_master', password='password123')
 
 # Crear perfiles de prueba
-profile1 = Profile.objects.create(user=user1, username='dev_guru', bio='Expert in Python development and web technologies.')
-profile2 = Profile.objects.create(user=user2, username='marketing_master', bio='Specialist in digital marketing strategies.')
+#profile1 = Profile.objects.create(user=user1, username='dev_guru', bio='Expert in Python development and web technologies.')
+#profile2 = Profile.objects.create(user=user2, username='marketing_master', bio='Specialist in digital marketing strategies.')
 
 # Crear etiquetas de prueba
 tag1 = Tag.objects.create(name='Python', slug='python')
@@ -88,7 +88,7 @@ Focus on SEO to improve your search engine rankings and attract more visitors to
 post1 = Post.objects.create(
     title='Introduction to Python',
     slug='introduction-to-python',
-    author=profile1,
+    author=user1.profile,
     content=content1,
     published_date=timezone.now(),
     status='published'
@@ -96,7 +96,7 @@ post1 = Post.objects.create(
 post2 = Post.objects.create(
     title='Getting Started with Django',
     slug='getting-started-with-django',
-    author=profile1,
+    author=user1.profile,
     content=content2,
     published_date=timezone.now(),
     status='published'
@@ -104,7 +104,7 @@ post2 = Post.objects.create(
 post3 = Post.objects.create(
     title='Web Development Trends in 2024',
     slug='web-development-trends-2024',
-    author=profile1,
+    author=user1.profile,
     content=content3,
     published_date=timezone.now(),
     status='draft'
@@ -112,7 +112,7 @@ post3 = Post.objects.create(
 post4 = Post.objects.create(
     title='Digital Marketing Strategies',
     slug='digital-marketing-strategies',
-    author=profile2,
+    author=user2.profile,
     content=content4,
     published_date=timezone.now(),
     status='published'
@@ -120,7 +120,7 @@ post4 = Post.objects.create(
 post5 = Post.objects.create(
     title='Understanding SEO',
     slug='understanding-seo',
-    author=profile2,
+    author=user2.profile,
     content=content5,
     published_date=timezone.now(),
     status='published'
