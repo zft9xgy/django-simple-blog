@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-ikpkp70edhcyt+cd11kyd1(*)-w)5$a%i9foht-e87)bi@1^ez
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '192.168.1.113',
+    '*',
+    ]
 
 
 # Application definition
@@ -99,7 +104,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dbsimpleblog',
-        'PASSWORD': '',
+        'PASSWORD': os.environ.get('DJANGO_DB_PASS'),
         'USER': 'postgres',
         'HOST': 'localhost',
         'PORT': '5432'
