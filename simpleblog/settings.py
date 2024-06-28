@@ -36,7 +36,6 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -147,12 +146,19 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_TMP = os.path.join(BASE_DIR, 'staticfiles')
+
+
+os.makedirs(STATIC_TMP,exist_ok=True)
+os.makedirs(STATIC_ROOT,exist_ok=True)
+
+
+STATICFILES_DIRS = os.path.join(BASE_DIR,'static')
+
+
+
 
 # STORAGES = {
 #     # Enable WhiteNoise's GZip and Brotli compression of static assets:
