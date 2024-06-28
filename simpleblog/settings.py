@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-ikpkp70edhcyt+cd11kyd1(*)-w)5$a%i9foht-e87)bi@1^ez
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*',
+    'djangosimpleblog-37ed20df29d7.herokuapp.com',
 ]
 
 
