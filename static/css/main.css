@@ -1125,6 +1125,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     background-repeat: no-repeat;
     background: center center;
     background-size: contain;
+    background-image: url(../images/icons/icon-quote.svg);
     position: absolute;
     top: 4rem;
     left: 4rem;
