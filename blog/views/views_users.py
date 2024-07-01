@@ -47,3 +47,10 @@ def userRegister(request):
     }
     
     return render(request,'blog/create-single.html',context)
+
+
+@login_required(login_url='user-login')
+def userMyProfile(request):
+    profile = request.user.profile
+    print(request.user)
+    return redirect('home')
