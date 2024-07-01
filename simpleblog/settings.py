@@ -1,4 +1,5 @@
 from pathlib import Path, os
+import sys
 import dj_database_url
 from django.core.management.utils import get_random_secret_key
 
@@ -70,11 +71,6 @@ WSGI_APPLICATION = 'simpleblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-    # In production on Heroku the database configuration is derived from the `DATABASE_URL`
-    # environment variable by the dj-database-url package. `DATABASE_URL` will be set
-    # automatically by Heroku when a database addon is attached to your Heroku app. See:
-    # https://devcenter.heroku.com/articles/provisioning-heroku-postgres#application-config-vars
-    # https://github.com/jazzband/dj-database-url
 
 if DEVELOPMENT_MODE is True:
     DATABASES = {
@@ -128,8 +124,8 @@ USE_TZ = True
 
 
 
-# MEDIA_URL = '/images/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
