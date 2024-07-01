@@ -33,3 +33,15 @@ post_excerpt
 post_status -> draft, published
 post_slug
 post_modified_date
+
+Vamos a modificar el modelo de Profile para que tome los siguientes roles:
+
+- Suscriber
+- Autor
+
+- On register all user will be suscriber.
+- Add a registration page
+- Page for edit profile
+
+- Register with soical media
+- Public visibility options in the profile. Allow user to set public, only authors, no public.

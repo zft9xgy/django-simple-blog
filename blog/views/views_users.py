@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from blog.forms import ProfileCreationForm
 
 # user login and logout 
 def userLogin(request):
@@ -25,3 +26,24 @@ def userLogout(request):
     
     logout(request)
     return redirect('home')
+
+
+
+def userRegister(request):
+
+    form = ProfileCreationForm()
+
+    if request.method == 'POST':
+        form = ProfileCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.save()
+            login(request,user)
+            next = request.GET.get('next')
+            return redirect(next or 'home')
+
+    context = {
+        'form': form,
+    }
+    
+    return render(request,'blog/create-single.html',context)

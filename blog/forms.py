@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from .models import Post, Tag
 
 class PostForm(forms.ModelForm):
@@ -23,3 +25,15 @@ class TagForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'input form-control'}),
             'slug': forms.TextInput(attrs={'class': 'input form-control'}),
         }
+
+
+class ProfileCreationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['email', 'username','password1', 'password2']
+
+    def __init__(self, *args, **kwargs):
+        super(ProfileCreationForm, self).__init__(*args, **kwargs)
+
+        for name, field in self.fields.items():
+            field.widget.attrs.update({'class': 'input'})

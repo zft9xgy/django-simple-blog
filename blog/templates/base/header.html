@@ -27,10 +27,14 @@
           <a href="{% url 'blog' %}">Blog</a>
         </li>
         {% if request.user.is_authenticated %}
+
         <li><a href="{% url 'admin-panel' %}">Admin panel</a></li>
+        {% if request.user.is_superuser %}
         <li><a href="/admin/">Djando admin</a></li>
+        {% endif %}
         <li><a href="{% url 'user-logout' %}">Logout</a></li>
         {% else %}
+        <li><a href="{% url 'user-register' %}">Register</a></li>
         <li><a href="{% url 'user-login' %}">Login</a></li>
         {% endif %}
       </ul>
