@@ -8,7 +8,7 @@ def global_variables(request):
     
     menuTags = Tag.get_tags_by_post(3)
 
-    websiteTitle='Keep it simple!'
+    websiteTitle='Keep it simple.'
     websiteTagline="A simple blog made with Django"
     aboutFooter = "About del footer."
 
