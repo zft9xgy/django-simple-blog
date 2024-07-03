@@ -1,0 +1,8 @@
+- listado de usuarios
+- implementar paginacion en usuarios y post
+- listado de etiquetas en el home
+- pagina propia donde se listen las etiquetas
+- manaera de editar passowrd para los usuarios
+- when change profile picture remove the previous one
+- when user upload a profile picture sanitize and normalize the name
+- major feat: create a media system

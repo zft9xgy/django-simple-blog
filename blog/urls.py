@@ -23,8 +23,8 @@ urlpatterns = [
     path('login/',views_users.userLogin,name='user-login'),
     path('logout/',views_users.userLogout,name='user-logout'),
     path('register/',views_users.userRegister,name='user-register'),
-    path('profile/',views_users.userMyProfile,name='user-myprofile'),
-    path('profile/<str:username>',views_users.userPublicProfile,name='user-publicprofile'),
+    path('edit-profile/',views_users.userEditProfile,name='user-edit-profile'),
+    path('profile/<str:username>',views_users.userPublicProfile,name='user-public-profile'),
     
 ]
 
