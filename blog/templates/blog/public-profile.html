@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %} {% load static %}
+
+<!-- -->
+{% block content %}
+<div class="s-content">
+  <div class="row row-x-center">
+    <div id="main" class="s-content__main large-8 column">
+      <img src="{{profile.profile_image.url}}" alt="" />
+      {{profile.profile_image.url}}
+      <h1>{{ profile }}</h1>
+      <p>Username: {{profile.username}}</p>
+      <p>Bio: {{profile.bio}}</p>
+      <p>Email: {{profile.email}}</p>
+      <p>Web: {{profile.social_website}}</p>
+      <p>Creación del perfil: {{profile.created}}</p>
+      <p>Role: {{profile.role}}</p>
+    </div>
+    <!-- end main -->
+  </div>
+  <!-- end row -->
+</div>
+
+{% endblock %}

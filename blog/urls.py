@@ -1,5 +1,7 @@
 from django.urls import path
 from blog.views import views, views_users
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home,name='home'),
@@ -22,5 +24,10 @@ urlpatterns = [
     path('logout/',views_users.userLogout,name='user-logout'),
     path('register/',views_users.userRegister,name='user-register'),
     path('profile/',views_users.userMyProfile,name='user-myprofile'),
+    path('profile/<str:username>',views_users.userPublicProfile,name='user-publicprofile'),
     
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

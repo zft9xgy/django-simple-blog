@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from blog.forms import ProfileCreationForm
+from blog.models import Profile
 
 # user login and logout 
 def userLogin(request):
@@ -54,3 +55,12 @@ def userMyProfile(request):
     profile = request.user.profile
     print(request.user)
     return redirect('home')
+
+
+def userPublicProfile(request,username):
+    profile = Profile.objects.get(username=username)
+    
+    context = {
+        'profile': profile,
+    }
+    return render(request,'blog/public-profile.html',context)
