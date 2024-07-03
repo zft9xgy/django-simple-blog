@@ -13,7 +13,14 @@ def create_users():
     user_data = [
         {'username': 'john_doe', 'email': 'john@example.com', 'password': 'password123', 'role': 'author'},
         {'username': 'jane_smith', 'email': 'jane@example.com', 'password': 'password123', 'role': 'author'},
-        {'username': 'bob_brown', 'email': 'bob@example.com', 'password': 'password123', 'role': 'suscriber'}
+        {'username': 'bob_brown', 'email': 'bob@example.com', 'password': 'password123', 'role': 'suscriber'},
+        {'username': 'alice_white', 'email': 'alice@example.com', 'password': 'password123', 'role': 'author'},
+        {'username': 'charlie_green', 'email': 'charlie@example.com', 'password': 'password123', 'role': 'author'},
+        {'username': 'david_black', 'email': 'david@example.com', 'password': 'password123', 'role': 'author'},
+        {'username': 'eve_silver', 'email': 'eve@example.com', 'password': 'password123', 'role': 'author'},
+        {'username': 'frank_grey', 'email': 'frank@example.com', 'password': 'password123', 'role': 'author'},
+        {'username': 'grace_yellow', 'email': 'grace@example.com', 'password': 'password123', 'role': 'author'},
+        {'username': 'henry_blue', 'email': 'henry@example.com', 'password': 'password123', 'role': 'author'}
     ]
 
     for user in user_data:
@@ -55,6 +62,14 @@ def create_posts():
             'content': 'The Django ORM is the interface used by Django to provide database access.',
         }
     ]
+
+    # Generar 20 publicaciones adicionales con títulos y slugs únicos
+    for i in range(1, 21):
+        post_data.append({
+            'title': f'Example Post {i}',
+            'slug': f'example-post-{i}',
+            'content': f'This is the content of example post {i}.'
+        })
 
     for post in post_data:
         author = random.choice(author_profiles)

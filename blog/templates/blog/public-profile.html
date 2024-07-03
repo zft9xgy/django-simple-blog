@@ -4,20 +4,31 @@
 {% block content %}
 <div class="s-content">
   <div class="row row-x-center">
-    <div id="main" class="s-content__main large-8 column">
-      <img src="{{profile.profile_image.url}}" alt="" />
-      {{profile.profile_image.url}}
-      <h1>{{ profile }}</h1>
-      <p>Username: {{profile.username}}</p>
-      <p>Bio: {{profile.bio}}</p>
-      <p>Email: {{profile.email}}</p>
-      <p>Web: {{profile.social_website}}</p>
-      <p>Creación del perfil: {{profile.created}}</p>
-      <p>Role: {{profile.role}}</p>
-    </div>
-    <!-- end main -->
-  </div>
-  <!-- end row -->
-</div>
+    <div id="main" class="s-content__main large-6 column">
+      <img
+        src="{{profile.profile_image.url}}"
+        alt="{{profile.username}}"
+        style="width: 150px"
+      />
+      {% if request.user.profile.username == profile.username %}
+      <a href="#">Editar perfil</a>
+      {% endif %}
+      <h1>{{profile.username|default:"--"}}</h1>
+      <p>{{profile.email|default:"--"}}</p>
+      <p>Creación del perfil: {{profile.created|default:"--"}}</p>
+      <p>Role: {{profile.role|default:"--"}}</p>
+      <p>
+        Website:
+        <a href="{{profile.social_website}}"
+          >{{ profile.social_website|default:""}}</a
+        >
+      </p>
+      <p>Bio:{{profile.bio|default:"--"}}</p>
 
-{% endblock %}
+      <!-- end main -->
+    </div>
+    <!-- end row -->
+  </div>
+
+  {% endblock %}
+</div>
