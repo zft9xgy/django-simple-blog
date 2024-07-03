@@ -6,3 +6,4 @@
 - when change profile picture remove the previous one
 - when user upload a profile picture sanitize and normalize the name
 - major feat: create a media system
+- creación de modelo con datos tipo options con los datos básicos de la web, titulo, tagline, numero de entradas en la home, en el blog, etc.

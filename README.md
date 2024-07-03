@@ -1,47 +1,15 @@
-Django simple blog pretende ser un blog personal inspirado en wordpress, pero minimizandolo y dejandolo solo en lo que considero lo esencial.
+## EN
 
-En cuanto a tipos de contenido, va a tener los mismos que wordpress page and post.
+Django simple blog aims to be a personal blog inspired by WordPress.
 
-Las páginas destinadas a contenidos únicos y los post destinados a ser entradas del blog.
+Currently it is a project I use to learn and practice web development with Django. I don't recommend using it for now.
 
-En cuanto a taxonomias, pretendo usar solo etiquetas, descartando las categorias.
+In the future I will extend the documentation when I have something stable and useful to offer to the user.
 
-Opcionales a desarrollar:
+## ES
 
-- sección de comentarios
+Django simple blog pretende ser un blog personal inspirado en WordPress.
 
-Modelo:
+Actualmente es un proyecto que uso para aprender y practicar el desarrollo web con Django. No recomiendo usar por ahora.
 
-USER
-id
-created_date
-username
-first_name
-last_name
-email
-password
-other django atributes
-https://docs.djangoproject.com/en/5.0/ref/contrib/auth/
-
-POST
-id
-post_creation_date
-post_author -> user
-post_content -> contenido
-post_title
-post_excerpt
-post_status -> draft, published
-post_slug
-post_modified_date
-
-Vamos a modificar el modelo de Profile para que tome los siguientes roles:
-
-- Suscriber
-- Autor
-
-- On register all user will be suscriber.
-- Add a registration page
-- Page for edit profile
-
-- Register with soical media
-- Public visibility options in the profile. Allow user to set public, only authors, no public.
+En el futuro se extenderá la documentación cuando se tenga algo estable y útil que ofrecer al usuario.
