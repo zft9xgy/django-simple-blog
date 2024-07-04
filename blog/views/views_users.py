@@ -77,3 +77,13 @@ def userPublicProfile(request,username):
         'profile': profile,
     }
     return render(request,'blog/public-profile.html',context)
+
+
+def listProfiles(request):
+
+    profiles = Profile.objects.all()
+
+    context = {
+        'profiles': profiles,
+    }
+    return render(request,'users/profile-listing.html',context)

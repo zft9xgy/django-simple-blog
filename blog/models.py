@@ -51,7 +51,7 @@ class Post(models.Model):
                           primary_key=True, editable=False)
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
-    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE,related_name="posts")
     content = models.TextField()
     published_date = models.DateTimeField(default=timezone.now)
     created_date = models.DateTimeField(auto_now_add=True)

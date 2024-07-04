@@ -25,6 +25,7 @@ urlpatterns = [
     path('register/',views_users.userRegister,name='user-register'),
     path('edit-profile/',views_users.userEditProfile,name='user-edit-profile'),
     path('profile/<str:username>',views_users.userPublicProfile,name='user-public-profile'),
+    path('profiles/',views_users.listProfiles,name='profiles-listing'),
     
 ]
 

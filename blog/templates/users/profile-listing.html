@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %} {% load static %}
+
+<!-- -->
+{% block content %}
+<div class="s-content">
+  <div class="row row-x-center">
+    <div id="main" class="s-content__main large-10 column">
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Role</th>
+              <th>Entries</th>
+              <th>Profile</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for profile in profiles %}
+
+            <tr>
+              <td>{{profile.username}}</td>
+              <td>{{profile.role}}</td>
+              <td>{{profile.posts.count}}</td>
+              <td>
+                <a href="{% url 'user-public-profile' profile.username %}"
+                  >View Profile</a
+                >
+              </td>
+            </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <!-- end main -->
+    </div>
+    <!-- end row -->
+  </div>
+
+  {% endblock %}
+</div>
