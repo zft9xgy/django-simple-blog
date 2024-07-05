@@ -10,6 +10,8 @@
 
 ## todo
 
+- home limit to 5 post and also lopp throught tags
+
 ## Done
 
 - 05/07/2024 - profile page must show a list of post from this author (m)

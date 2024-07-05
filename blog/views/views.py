@@ -8,10 +8,12 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def home(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all()[:5] #limite de post
+    tags = Tag.objects.all()[:10] #limite de tags que queremso mostrar
 
     context = {
         'posts': posts,
+        'tags': tags,
     }
     return render(request,'uniques/index.html',context)
 
