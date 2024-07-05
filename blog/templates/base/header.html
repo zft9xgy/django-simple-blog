@@ -28,6 +28,9 @@
         <li class="">
           <a href="{% url 'blog' %}">Blog</a>
         </li>
+        <li class="">
+          <a href="{% url 'profiles-listing' %}">Profiles</a>
+        </li>
         {% if request.user.is_authenticated %}
 
         <li><a href="{% url 'admin-panel' %}">Admin panel</a></li>
