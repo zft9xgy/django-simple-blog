@@ -1,65 +1,66 @@
-<!DOCTYPE html>
-{% load static %}
-<html class="no-js" lang="es">
-  {% include 'base/head.html' %}
-  <body id="top">
-    <!-- Header
-    ================================================== -->
-    {% include 'base/header.html' %}
-    <!-- Content
-    ================================================== -->
-    <div class="s-content">
-      <div class="row row-x-center">
-        <div id="main" class="s-content__main large-8 column">
-          {% for post in posts %}
-          <article class="entry">
-            <header class="entry__header">
-              <h2 class="entry__title h1">
-                <a href="{% url 'single' post.slug %}" title="{{post.slug}}"
-                  >{{post.title}}</a
-                >
-              </h2>
+{% extends 'base/base.html' %} {% load static %}
 
-              <div class="entry__meta">
-                <ul>
-                  <li>
-                    <a
-                      href="{% url 'user-public-profile' post.author.username %}"
-                    >
-                      {{post.author.username}}</a
-                    >
-                  </li>
-                  <li>{{post.created_date}}</li>
-                  {% for tag in post.tags.all %}
-                  <li>
-                    <a href="{% url 'tag-view' tag.slug %}" title="" rel="tag"
-                      >{{tag.name}}</a
-                    >
-                  </li>
-                  {% endfor %}
-                </ul>
-              </div>
-            </header>
-
-            <div class="entry__content">
-              <p>{{post.content | slice:"200" | safe }}</p>
-            </div>
-          </article>
-          {% endfor %}
-          <!-- end entry -->
-        </div>
-        <!-- end main -->
-        <!-- sidebar -->
-        <!-- end sidebar -->
-      </div>
-      <!-- end row -->
+<!-- -->
+{% block content %}
+<!-- Content
+    ================================================== -->
+<div class="s-content">
+  <div class="row row-x-center">
+    <div class="large-8 column">
+      <h2>Tags</h2>
+      <ul class="stats-tabs">
+        {% for tag in tags %}
+        <li>
+          <a href="{% url 'tag-view' tag.name %}"
+            >{{tag.name}}<em>entries:({{tag.posts.count}})</em></a
+          >
+        </li>
+        {% endfor %}
+      </ul>
     </div>
-    <!-- end content-wrap -->
+    <div id="main" class="s-content__main large-8 column">
+      <h2>Latest posts</h2>
+      {% for post in posts %}
+      <article class="entry">
+        <header class="entry__header">
+          <h2 class="entry__title h1">
+            <a href="{% url 'single' post.slug %}" title="{{post.slug}}"
+              >{{post.title}}</a
+            >
+          </h2>
 
-    {% include 'base/footer.html' %}
+          <div class="entry__meta">
+            <ul>
+              <li>
+                <a href="{% url 'user-public-profile' post.author.username %}">
+                  {{post.author.username}}</a
+                >
+              </li>
+              <li>{{post.created_date}}</li>
+              {% for tag in post.tags.all %}
+              <li>
+                <a href="{% url 'tag-view' tag.slug %}" title="" rel="tag"
+                  >{{tag.name}}</a
+                >
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </header>
 
-    <!-- Java Script
-    ================================================== -->
-    {% include 'base/foot.html' %}
-  </body>
-</html>
+        <div class="entry__content">
+          <p>{{post.content | slice:"200" | safe }}</p>
+        </div>
+      </article>
+      {% endfor %}
+      <!-- end entry -->
+    </div>
+    <!-- end main -->
+    <!-- sidebar -->
+    <!-- end sidebar -->
+  </div>
+  <!-- end row -->
+</div>
+<!-- end content-wrap -->
+
+{% endblock %}

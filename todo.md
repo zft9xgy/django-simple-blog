@@ -1,4 +1,5 @@
-- listado de usuarios
+## backlog
+
 - implementar paginacion en usuarios y post
 - listado de etiquetas en el home
 - pagina propia donde se listen las etiquetas
@@ -6,4 +7,12 @@
 - when change profile picture remove the previous one
 - when user upload a profile picture sanitize and normalize the name
 - major feat: create a media system
-- creación de modelo con datos tipo options con los datos básicos de la web, titulo, tagline, numero de entradas en la home, en el blog, etc.
+
+## todo
+
+- home limit to 5 post and also lopp throught tags
+
+## Done
+
+- 05/07/2024 - profile page must show a list of post from this author (m)
+- 04/07/2024 - listado de usuarios

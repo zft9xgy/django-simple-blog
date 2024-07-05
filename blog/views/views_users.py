@@ -72,8 +72,20 @@ def userEditProfile(request):
 
 def userPublicProfile(request,username):
     profile = Profile.objects.get(username=username)
+    print(profile)
+    print('posts',profile.posts)
     
     context = {
         'profile': profile,
     }
     return render(request,'blog/public-profile.html',context)
+
+
+def listProfiles(request):
+
+    profiles = Profile.objects.all()
+
+    context = {
+        'profiles': profiles,
+    }
+    return render(request,'users/profile-listing.html',context)
