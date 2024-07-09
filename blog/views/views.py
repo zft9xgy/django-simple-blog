@@ -8,8 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def home(request):
-    posts = Post.objects.all()
-
+    posts = Post.objects.filter(status='published')[:3]
     context = {
         'posts': posts,
     }
@@ -19,7 +18,7 @@ def demo(request):
     return render(request,'uniques/demo.html')
 
 def blog(request):
-    posts = Post.objects.all()
+    posts = Post.objects.filter(status='published')
 
     context = {
         'posts': posts,
