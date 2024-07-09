@@ -10,7 +10,6 @@ class PostForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'input form-control h-full-width'}),
             'slug': forms.TextInput(attrs={'class': 'input form-control h-full-width'}),
-            'author': forms.Select(attrs={'class': 'input form-control h-full-width'}),
             'content': forms.Textarea(attrs={'class': 'input textarea form-control h-full-width'}),
             'published_date': forms.DateTimeInput(attrs={'class': 'input form-control h-full-width', 'type': 'datetime-local'}),
             'status': forms.Select(attrs={'class': 'input form-control h-full-width'}),

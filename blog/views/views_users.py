@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from blog.forms import UserCreationForm, ProfileForm
-from blog.models import Profile
+from blog.models import Profile, Post
 
 # user login and logout 
 def userLogin(request):

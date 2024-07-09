@@ -74,7 +74,13 @@ def createSingle(request):
 @login_required(login_url='user-login')
 def editSingle(request,slug):
 
+
     post = Post.objects.get(slug=slug)
+
+    if request.user.profile != post.author:
+        print('sorry you are not the owner')
+        messages.error(request,'you are not the owner of the post')
+        return redirect('/')
 
     form = PostForm(instance=post)
 
@@ -93,6 +99,11 @@ def editSingle(request,slug):
 def deleteSingle(request,slug):
 
     post = Post.objects.get(slug=slug)
+
+    if request.user.profile != post.author:
+        print('sorry you are not the owner')
+        messages.error(request,'you are not the owner of the post')
+        return redirect('/')
 
     if request.method == 'POST':
         post.delete()
@@ -120,6 +131,7 @@ def tagView(request,slug):
     return render(request,'blog/tag.html',context)
 
 @login_required(login_url='user-login')
+@staff_member_required()
 def createTag(request):
 
     form = TagForm()
@@ -138,6 +150,7 @@ def createTag(request):
     return render(request,'blog/create-single.html',context)
 
 @login_required(login_url='user-login')
+@staff_member_required()
 def editTag(request,slug):
     
     tag = Tag.objects.get(slug=slug)
@@ -156,6 +169,7 @@ def editTag(request,slug):
     return render(request,'blog/create-single.html',context)
 
 @login_required(login_url='user-login')
+@staff_member_required()
 def deleteTag(request,slug):
 
     tag = Tag.objects.get(slug=slug)
