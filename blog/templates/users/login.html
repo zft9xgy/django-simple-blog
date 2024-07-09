@@ -9,11 +9,21 @@
       <form class="form" action="" method="POST">
         {% csrf_token %}
 
-        <input type="text" name="username" placeholder="username" />
-        <input type="password" name="password" placeholder="******" />
+        <input
+          class="h-full-width"
+          type="text"
+          name="username"
+          placeholder="username"
+        />
+        <input
+          class="h-full-width"
+          type="password"
+          name="password"
+          placeholder="******"
+        />
 
         <input
-          class="btn btn--sub btn--lg my-md"
+          class="btn btn--primary h-full-width"
           type="submit"
           value="Confirm"
         />

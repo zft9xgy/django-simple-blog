@@ -8,13 +8,13 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ['title', 'slug', 'author', 'content', 'published_date', 'status', 'tags']
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'input form-control'}),
-            'slug': forms.TextInput(attrs={'class': 'input form-control'}),
-            'author': forms.Select(attrs={'class': 'input form-control'}),
-            'content': forms.Textarea(attrs={'class': 'input textarea form-control'}),
-            'published_date': forms.DateTimeInput(attrs={'class': 'input form-control', 'type': 'datetime-local'}),
-            'status': forms.Select(attrs={'class': 'input form-control'}),
-            'tags': forms.SelectMultiple(attrs={'class': 'input form-control'}),
+            'title': forms.TextInput(attrs={'class': 'input form-control h-full-width'}),
+            'slug': forms.TextInput(attrs={'class': 'input form-control h-full-width'}),
+            'author': forms.Select(attrs={'class': 'input form-control h-full-width'}),
+            'content': forms.Textarea(attrs={'class': 'input textarea form-control h-full-width'}),
+            'published_date': forms.DateTimeInput(attrs={'class': 'input form-control h-full-width', 'type': 'datetime-local'}),
+            'status': forms.Select(attrs={'class': 'input form-control h-full-width'}),
+            'tags': forms.SelectMultiple(attrs={'class': 'input form-control h-full-width'}),
         }
 
 class TagForm(forms.ModelForm):
@@ -22,8 +22,8 @@ class TagForm(forms.ModelForm):
         model = Tag
         fields = ['name', 'slug']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'input form-control'}),
-            'slug': forms.TextInput(attrs={'class': 'input form-control'}),
+            'name': forms.TextInput(attrs={'class': 'input form-control h-full-width'}),
+            'slug': forms.TextInput(attrs={'class': 'input form-control h-full-width'}),
         }
 
 
@@ -36,7 +36,7 @@ class UserCreationForm(UserCreationForm):
         super(UserCreationForm, self).__init__(*args, **kwargs)
 
         for name, field in self.fields.items():
-            field.widget.attrs.update({'class': 'input'})
+            field.widget.attrs.update({'class': 'input h-full-width'})
 
 class ProfileForm(forms.ModelForm):
     class Meta:
@@ -47,4 +47,4 @@ class ProfileForm(forms.ModelForm):
         super(ProfileForm, self).__init__(*args, **kwargs)
 
         for name, field in self.fields.items():
-            field.widget.attrs.update({'class': 'input'})
+            field.widget.attrs.update({'class': 'input h-full-width'})
