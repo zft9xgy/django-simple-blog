@@ -4,6 +4,7 @@ from blog.forms import PostForm, TagForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.admin.views.decorators import staff_member_required
 
 # Create your views here.
 
@@ -40,6 +41,7 @@ def single(request,slug):
     return render(request,'blog/single.html',context)
 
 @login_required(login_url='user-login')
+@staff_member_required()
 def adminPanel(request):
 
     posts = Post.objects.all()
@@ -167,34 +169,3 @@ def deleteTag(request,slug):
     }
     return render(request,'blog/delete-object.html',context)
 
-
-# # user login and logout 
-# def userLogin(request):
-
-#     if request.method == 'POST':
-#         username = request.POST.get('username')
-#         password = request.POST.get('password')
-
-#         user = authenticate(username=username, password=password)
-        
-#         if user is not None:
-#             # A backend authenticated the credentials
-#             login(request,user)
-#             messages.success(request,'Usuario logeado correctamente.')
-#             next = request.GET.get('next')
-#             return redirect(next or 'home')
-#         else:
-#             # No backend authenticated the credentials
-#             messages.error(request,'username or password wrong.')
-#             print('username or password wrong')
-
-
-#     return render(request,'users/login.html')
-
-
-# @login_required(login_url='user-login')
-# def userLogout(request):
-
-#     logout(request)
-#     messages.info(request, 'User was logged out!')
-#     return redirect('home')

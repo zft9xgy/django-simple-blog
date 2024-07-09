@@ -72,8 +72,6 @@ def userEditProfile(request):
 
 def userPublicProfile(request,username):
     profile = Profile.objects.get(username=username)
-    print(profile)
-    print('posts',profile.posts)
     
     context = {
         'profile': profile,
