@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}{% load static %}
+
+<!-- -->
+{% block content %}
+
+<!-- Main Section -->
+<main class="s-content">
+  <div class="row row-x-center">
+    <div class="s-content__main large-8 column">
+      <br />
+
+      <form class="form" method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- -->
+        {% for field in form %}
+        <div class="form__field">
+          <label for="formInput#text">{{field.label}}</label>
+          {{field}}
+        </div>
+        {% endfor %}
+
+        <input
+          class="btn btn--sub btn--lg my-md"
+          type="submit"
+          value="Submit"
+        />
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

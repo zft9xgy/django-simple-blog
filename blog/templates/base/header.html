@@ -15,6 +15,7 @@
     <div class="row row-x-center">
       <ul class="s-header__nav">
         <li class="current"><a href="{% url 'home' %}">Home</a></li>
+        {% if global.menuTags %}
         <li class="has-children">
           <a href="">Tags</a>
           <ul>
@@ -23,8 +24,12 @@
             {% endfor %}
           </ul>
         </li>
+        {% endif %}
         <li class="">
           <a href="{% url 'blog' %}">Blog</a>
+        </li>
+        <li class="">
+          <a href="{% url 'profiles-listing' %}">Profiles</a>
         </li>
         {% if request.user.is_authenticated %}
 
@@ -32,7 +37,12 @@
         {% if request.user.is_superuser %}
         <li><a href="/admin/">Djando admin</a></li>
         {% endif %}
-        <li><a href="{% url 'user-myprofile' %}">My profile</a></li>
+        <li>
+          <a
+            href="{% url 'user-public-profile' request.user.profile.username %}"
+            >My profile</a
+          >
+        </li>
         <li><a href="{% url 'user-logout' %}">Logout</a></li>
         {% else %}
         <li><a href="{% url 'user-register' %}">Register</a></li>

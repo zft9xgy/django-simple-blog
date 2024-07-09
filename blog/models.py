@@ -18,7 +18,7 @@ class Profile(models.Model):
     email = models.EmailField(max_length=500, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     profile_image = models.ImageField(
-        null=True, blank=True, upload_to='profiles/', default="profiles/user-default.png")
+        null=True, blank=False, upload_to='profiles/', default="profiles/user-default.png")
     social_website = models.CharField(max_length=200, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='suscriber')
@@ -51,7 +51,7 @@ class Post(models.Model):
                           primary_key=True, editable=False)
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
-    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE,related_name="posts")
     content = models.TextField()
     published_date = models.DateTimeField(default=timezone.now)
     created_date = models.DateTimeField(auto_now_add=True)

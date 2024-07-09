@@ -9,8 +9,11 @@ from django.contrib.auth import authenticate, login, logout
 
 def home(request):
     posts = Post.objects.filter(status='published')[:3]
+    tags = Tag.objects.all()[:10]
+
     context = {
         'posts': posts,
+        'tags': tags,
     }
     return render(request,'uniques/index.html',context)
 
