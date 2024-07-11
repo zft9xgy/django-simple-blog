@@ -3,13 +3,22 @@
 - implementar paginacion en usuarios y post
 - listado de etiquetas en el home
 - pagina propia donde se listen las etiquetas
-- manaera de editar passowrd para los usuarios
+- manaera de editar password para los usuarios
+- email de bienvenida y confirmacion de cuenta
+- autenticación con github
+- comentarios en los difernetes post
 - when change profile picture remove the previous one
 - when user upload a profile picture sanitize and normalize the name
 - major feat: create a media system
 - add robot.txt
 - add sitemap
 - add seo capabilities to the content and web
+- create build folder to auto deploy when git push main
+- modify settings with production if statement and .env vars
+
+### bugs
+
+- el usuario no deberia modificar autor cuando modifica un post
 
 ## todo
 
