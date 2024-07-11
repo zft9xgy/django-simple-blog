@@ -32,9 +32,9 @@
           <a href="{% url 'profiles-listing' %}">Profiles</a>
         </li>
         {% if request.user.is_authenticated %}
-
-        <li><a href="{% url 'admin-panel' %}">Admin panel</a></li>
+        <!-- -->
         {% if request.user.is_superuser %}
+        <li><a href="{% url 'admin-panel' %}">Admin panel</a></li>
         <li><a href="/admin/">Djando admin</a></li>
         {% endif %}
         <li>

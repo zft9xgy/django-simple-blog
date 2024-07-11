@@ -156,6 +156,7 @@ def create_posts():
             title=post['title'],
             slug=post['slug'],
             author=author,
+            status=random.choice(['draft','published']),
             defaults={
                 'content': post['content']
             }

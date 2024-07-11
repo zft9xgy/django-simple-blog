@@ -6,20 +6,7 @@
     ================================================== -->
 <div class="s-content">
   <div class="row row-x-center">
-    <div class="large-8 column">
-      <h2>Tags</h2>
-      <ul class="stats-tabs">
-        {% for tag in tags %}
-        <li>
-          <a href="{% url 'tag-view' tag.name %}"
-            >{{tag.name}}<em>entries:({{tag.posts.count}})</em></a
-          >
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
     <div id="main" class="s-content__main large-8 column">
-      <h2>Latest posts</h2>
       {% for post in posts %}
       <article class="entry">
         <header class="entry__header">
@@ -31,19 +18,13 @@
 
           <div class="entry__meta">
             <ul>
-              <li>
-                <a href="{% url 'user-public-profile' post.author.username %}">
-                  {{post.author.username}}</a
-                >
-              </li>
               <li>{{post.created_date}}</li>
               {% for tag in post.tags.all %}
               <li>
-                <a href="{% url 'tag-view' tag.slug %}" title="" rel="tag"
-                  >{{tag.name}}</a
-                >
+                <a href="#" title="" rel="tag">{{tag.name}}</a>
               </li>
               {% endfor %}
+              <li>{{post.author.username}}</li>
             </ul>
           </div>
         </header>
