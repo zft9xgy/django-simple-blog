@@ -10,7 +10,6 @@
 - when change profile picture remove the previous one
 - when user upload a profile picture sanitize and normalize the name
 - major feat: create a media system
-- add robot.txt
 - add sitemap
 - add seo capabilities to the content and web
 - create build folder to auto deploy when git push main
@@ -26,5 +25,6 @@
 
 ## Done
 
+- 11/07/2024 - add robot.txt
 - 05/07/2024 - profile page must show a list of post from this author (m)
 - 04/07/2024 - listado de usuarios

@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.admin.views.decorators import staff_member_required
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -32,7 +33,7 @@ def blog(request):
 
 def single(request,slug):
 
-    post = Post.objects.get(slug=slug)
+    post = get_object_or_404(Post,slug=slug)
 
     context = {
         'post':post,
@@ -183,3 +184,11 @@ def deleteTag(request,slug):
     }
     return render(request,'blog/delete-object.html',context)
 
+
+def robots(request):
+    file = open("blog/utils/robots.txt", "r")
+    # robotstxt = """\
+    #     User-agent: *
+    #     Disallow: /
+    #     """
+    return HttpResponse(file,content_type="text/plain")
