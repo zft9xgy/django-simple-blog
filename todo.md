@@ -7,6 +7,9 @@
 - when change profile picture remove the previous one
 - when user upload a profile picture sanitize and normalize the name
 - major feat: create a media system
+- add robot.txt
+- add sitemap
+- add seo capabilities to the content and web
 
 ## todo
 
