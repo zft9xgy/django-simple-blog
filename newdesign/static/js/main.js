@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.querySelector('.dark-mode');
     const darkModeLinkId = 'dark-mode-css';
 
-    console.log('dark mode ok')
 
     darkModeToggle.addEventListener('click', () => {
         let darkModeLink = document.getElementById(darkModeLinkId);
 
+        window.localStorage.setItem('theme', 'light');
         if (darkModeLink) {
             // Si el enlace ya existe, eliminarlo
             darkModeLink.parentNode.removeChild(darkModeLink);
@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
             darkModeLink.rel = 'stylesheet';
             darkModeLink.href = './static/styles/dark.css';
             document.head.appendChild(darkModeLink);
+            window.localStorage.setItem('theme', 'dark');
         }
     });
+
+    
 });
