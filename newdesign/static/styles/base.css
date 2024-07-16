@@ -51,6 +51,24 @@
   --border-radius-default: 10px;
 }
 
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #111111;
+
+    --color-bg-f5: #202020;
+    --color-bg-c3: #c3c3c3;
+    --color-accent: #fcd37a;
+    --color-accent-hover: #feda8b;
+    --color-font-primay: #fff;
+    --color-font-secondary: #dbdbdb;
+  
+    --color-button-bg: #c3c3c3;
+    --color-button-bg-hover: #b5b5b5;
+    }
+}
+
+
 /**
  * Scaffolding
  */
@@ -723,3 +741,7 @@ caption {
     width: 100%;
   }
 }
+
+
+
+

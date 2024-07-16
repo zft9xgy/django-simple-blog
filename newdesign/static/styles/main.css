@@ -269,7 +269,7 @@ h3.project-title {
   border-radius: var(--border-radius-default);
 }
 
-h3.tag-title {
+h3.tag-title{
   margin: 0;
   padding: 0;
   font-size: 1.2em;
@@ -278,7 +278,8 @@ h3.tag-title {
 }
 
 a.tag:hover,
-h3.tag-title:hover {
+h3.tag-title:hover,
+h2.tag-title:hover {
   text-decoration: none;
 }
 
@@ -307,6 +308,21 @@ h3.tag-title:hover {
   border: 1px solid;
   border-radius: var(--border-radius-default);
   border-color: var(--color-bg-c3);
+}
+
+/* tags.html */
+
+.tag-section{
+  padding: 1rem 0;
+}
+
+h2.tag-title{
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.625rem;
+  font-size: 1.5em;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 /* for design purpose only */
