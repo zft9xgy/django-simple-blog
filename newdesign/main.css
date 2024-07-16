@@ -39,6 +39,28 @@ html {
 
 /* common and utils*/
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h1.page-title {
+  font-size: 42px;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -53,9 +75,30 @@ body {
   display: flex;
 }
 
+.home-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-header {
+  margin-bottom: 50px;
+}
+
 .section-title {
   font-family: var(--font-family-heading);
   font-size: 1.5em;
+}
+
+.button {
+  padding: 5px 10px;
+  display: inline-block;
+  border: 1px solid var(--color-button-bg);
+  border-radius: var(--border-radius-default);
+}
+
+.button:hover {
+  border-color: var(--color-accent);
 }
 
 /* footer */
@@ -139,8 +182,6 @@ body {
 }
 
 .bio .bio-title {
-  font-family: var(--font-family-heading);
-  font-size: 30px;
   font-weight: 900;
 }
 
@@ -156,7 +197,7 @@ body {
 
 /* notes section */
 
-.notes {
+.notes-section {
   padding: 50px 0px;
 }
 
@@ -169,6 +210,7 @@ body {
 
 .note .note-date {
   flex-shrink: 0;
+  color: var(--color-font-secondary);
 }
 
 .note .note-title a {
@@ -187,6 +229,12 @@ body {
 
 .projects-section {
   padding: 50px 0px;
+}
+
+.page-projects .projects-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .projects-grid {
@@ -258,7 +306,8 @@ body {
 /* tags section */
 
 .tags-section {
-  padding: 50px 0px;
+  padding-top: 50px;
+  padding-bottom: 100px;
 }
 
 .tags {
@@ -269,7 +318,6 @@ body {
 }
 
 .tag {
-  font-size: 1.3em;
   color: var(--color-font-primay);
   text-decoration: none;
   padding: 10px;
@@ -280,6 +328,25 @@ body {
 
 .tag .hashtag {
   font-weight: 200;
+}
+
+/* single-note template */
+
+.single-note .page-title {
+  line-height: 1.1em;
+}
+
+.single-note .section-header {
+  padding-top: 100px;
+  margin: 0px;
+}
+
+.single-note .single-note-meta-box {
+  padding: 20px;
+  background-color: var(--color-bg-f5);
+  border: 1px solid;
+  border-radius: var(--border-radius-default);
+  border-color: var(--color-bg-c3);
 }
 
 /* for design purpose only */

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note title</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body class="single-note">
+    <div class="site-header-wrapper">
+      <header id="site-header" class="site-header">
+        <div class="logo"><a href="./index.html">Keep it simple!</a></div>
+        <div class="navbar">
+          <div class="menu-item">
+            <a href="./notes.html" class="nav-link">Notes</a>
+          </div>
+          <div class="menu-item">
+            <a href="./projects.html" class="nav-link">Projects</a>
+          </div>
+          <div class="menu-item">
+            <a href="./tags.html" class="nav-link">Tags</a>
+          </div>
+          <div class="menu-item">
+            <a href="./page-template.html" class="nav-link">About</a>
+          </div>
+          <div class="menu-item">
+            <a href="./page-template.html" class="nav-link">Ideas</a>
+          </div>
+          <div class="menu-item">
+            <a href="./page-template.html" class="nav-link">Now</a>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <main class="page-wrapper">
+      <section class="single-note-section section">
+        <div class="section-header">
+          <h1 class="page-title">Django Authentication and Authorization</h1>
+          <p class="section-description">Extracto en caso de que se use.</p>
+        </div>
+      </section>
+
+      <div class="single-note-meta-box">
+        <div class="word-count">Words: 500</div>
+        <div class="reading-time">Reading time: 5 min</div>
+        <div class="publish-date">Published: 14 julio 2024</div>
+        <div class="update-date">Last updated: 14 julio 2024</div>
+        <div class="note-tags">
+          <a href="#" class="note-tag">#tag1</a>
+          <a href="#" class="note-tag">#tag1</a>
+          <a href="#" class="note-tag">#tag1</a>
+        </div>
+      </div>
+
+      <div class="single-note-content content">
+        <section id="overview">
+          <h2>Overview</h2>
+          <p>
+            Django provides a robust system for authentication and
+            authorization. In this tutorial, we will explore the basics of
+            setting up authentication and managing user permissions in Django
+            applications.
+          </p>
+          <img
+            src="django-auth-overview.png"
+            alt="Django Authentication Overview"
+          />
+        </section>
+
+        <section id="setup">
+          <h2>Setup</h2>
+          <p>
+            Before diving into authentication and authorization, ensure you have
+            Django installed:
+          </p>
+          <pre><code class="language-sh">pip install django</code></pre>
+          <p>Create a new Django project and app:</p>
+          <pre><code class="language-sh">django-admin startproject myproject
+cd myproject
+django-admin startapp myapp</code></pre>
+        </section>
+
+        <section id="authentication">
+          <h2>Authentication</h2>
+          <h3>User Model</h3>
+          <p>
+            Django comes with a built-in User model for authentication purposes.
+            You can use this model to create users, manage passwords, and handle
+            user sessions.
+          </p>
+          <blockquote>
+            <p>
+              "Django's built-in user authentication is a highly versatile and
+              customizable system."
+            </p>
+          </blockquote>
+          <h3>Login and Logout</h3>
+          <p>
+            To handle user login and logout, Django provides views and forms.
+            You can use the following code to create login and logout
+            functionality:
+          </p>
+          <pre><code class="language-python">from django.contrib.auth import login, logout
+from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render, redirect
+
+def login_view(request):
+  if request.method == 'POST':
+      form = AuthenticationForm(request, data=request.POST)
+      if form.is_valid():
+          user = form.get_user()
+          login(request, user)
+          return redirect('home')
+  else:
+      form = AuthenticationForm()
+  return render(request, 'login.html', {'form': form})
+
+def logout_view(request):
+  if request.method == 'POST':
+      logout(request)
+      return redirect('home')</code></pre>
+        </section>
+
+        <section id="authorization">
+          <h2>Authorization</h2>
+          <p>
+            Authorization in Django is about controlling what users can and
+            cannot do. This is typically managed through user permissions and
+            groups.
+          </p>
+          <h3>Permissions</h3>
+          <p>
+            You can define custom permissions for your models using the
+            <code>Meta</code> class:
+          </p>
+          <pre><code>class MyModel(models.Model):
+  name = models.CharField(max_length=100)
+
+  class Meta:
+      permissions = [
+          ('can_view', 'Can view my model'),
+          ('can_edit', 'Can edit my model'),
+      ]</code></pre>
+          <h3>Groups</h3>
+          <p>
+            Groups allow you to assign permissions to multiple users at once.
+            You can create and manage groups using the Django admin interface or
+            programmatically.
+          </p>
+          <p>To assign a user to a group:</p>
+          <pre><code>{% raw %}from django.contrib.auth.models import Group, User
+
+group = Group.objects.get(name='Editors')
+user = User.objects.get(username='john')
+user.groups.add(group){% endraw %}</code></pre>
+        </section>
+
+        <section id="conclusion">
+          <h2>Conclusion</h2>
+          <p>
+            Django's authentication and authorization framework is powerful and
+            flexible, making it easy to manage user accounts and permissions in
+            your web applications. For more detailed information, refer to the
+            <a href="https://docs.djangoproject.com/en/stable/topics/auth/"
+              >official Django documentation</a
+            >.
+          </p>
+          <ul>
+            <li>
+              Learn more about
+              <a
+                href="https://docs.djangoproject.com/en/stable/topics/auth/default/"
+                >Django Authentication</a
+              >
+            </li>
+            <li>
+              Explore
+              <a
+                href="https://docs.djangoproject.com/en/stable/topics/auth/customizing/"
+                >Customizing Authentication</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="scroll"></section>
+    </main>
+
+    <footer class="footer">
+      <div class="site-footer-wrapper">
+        <nav class="footer-nav">
+          <a href="#" class="footer-link">($ cd ~)</a
+          ><a href="#" class="footer-link">Aviso legal</a
+          ><a href="#" class="footer-link">Privacidad</a
+          ><a href="#" class="footer-link">Cookies</a
+          ><a href="#" class="footer-link">Invitame a un café</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
