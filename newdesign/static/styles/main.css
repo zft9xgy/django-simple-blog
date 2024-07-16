@@ -13,6 +13,8 @@
   --header-width: 800px;
   --main-width: 800px;
 
+  --color-bg: #fff;
+
   --color-bg-f5: #f5f5f5;
   --color-bg-c3: #c3c3c3;
   --color-accent: #0066cc;
@@ -35,9 +37,14 @@ html {
   font-size: 16px;
   font-weight: normal;
   font-kerning: normal;
+  background-color: var(--color-bg);
 }
 
 /* common and utils*/
+
+.dark-mode {
+  cursor: pointer;
+}
 
 h1,
 h2,
@@ -119,6 +126,11 @@ body {
 .footer-nav .footer-link {
   text-decoration: none;
   color: var(--color-font-secondary);
+}
+
+.footer-creds {
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 /* header */

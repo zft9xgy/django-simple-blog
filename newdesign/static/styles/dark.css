@@ -1,0 +1,15 @@
+:root {
+  --color-bg: #000;
+
+  --color-bg-f5: #111111;
+  --color-bg-c3: #c3c3c3;
+  --color-accent: #f9ce21;
+  --color-accent-hover: #9f8313;
+  --color-font-primay: #fff;
+  --color-font-secondary: #dbdbdb;
+
+  --color-button-bg: #c3c3c3;
+  --color-button-bg-hover: #b5b5b5;
+
+  --border-radius-default: 10px;
+}
