@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link rel="stylesheet" href="./static/styles/normalize.css" />
+    <link rel="stylesheet" href="./static/styles/base.css" />
     <link rel="stylesheet" href="./static/styles/main.css" />
   </head>
   <body class="front-page">
@@ -37,7 +39,7 @@
     </div>
 
     <main class="page-wrapper">
-      <section class="hero section">
+      <section class="section hero">
         <div class="bio">
           <h1 class="bio-title">$ ~/rafael-cosquiere</h1>
           <div class="bio-description">
@@ -55,47 +57,51 @@
         </div>
       </section>
 
-      <section class="notes-section section">
+      <section class="section notes">
         <div class="home-section-header">
           <h2 class="section-title">$ ls -l ~/notes</h2>
           <a class="button" href="#">View all notes</a>
         </div>
 
-        <div class="content">
-          <article class="note">
-            <div class="note-title">
-              <a href="#">Django Authentication and Authorization</a>
-            </div>
-            <div class="note-date">Enero 2024</div>
-          </article>
-          <article class="note">
-            <div class="note-title">
-              <a href="#">Building E-commerce Sites with Django</a>
-            </div>
-            <div class="note-date">Enero 2024</div>
-          </article>
-          <article class="note">
-            <div class="note-title">
-              <a href="#">Django Templating Engine</a>
-            </div>
-            <div class="note-date">Enero 2024</div>
-          </article>
-          <article class="note">
-            <div class="note-title">
-              <a href="#">Django Performance Optimization</a>
-            </div>
-            <div class="note-date">Enero 2024</div>
-          </article>
-          <article class="note">
-            <div class="note-title">
-              <a href="#">Cómo Crear un Prompt para ChatGPT</a>
-            </div>
-            <div class="note-date">Enero 2024</div>
-          </article>
-        </div>
+        <article class="note">
+          <a href="#" class="note-link">
+            <h3 class="note-title">Django Authentication and Authorization</h3>
+            <time class="note-date">Enero 2024</time>
+          </a>
+        </article>
+        <article class="note">
+          <a href="#" class="note-link">
+            <h3 class="note-title">Django Middleware Explained</h3>
+            <time class="note-date">Enero 2024</time>
+          </a>
+        </article>
+        <article class="note">
+          <a href="#" class="note-link">
+            <h3 class="note-title">Working with Django Signals</h3>
+            <time class="note-date">Enero 2024</time>
+          </a>
+        </article>
+        <article class="note">
+          <a href="#" class="note-link">
+            <h3 class="note-title">Building E-commerce Sites with Django</h3>
+            <time class="note-date">Enero 2024</time>
+          </a>
+        </article>
+        <article class="note">
+          <a href="#" class="note-link">
+            <h3 class="note-title">Django Templating Engine</h3>
+            <time class="note-date">Enero 2024</time>
+          </a>
+        </article>
+        <article class="note">
+          <a href="#" class="note-link">
+            <h3 class="note-title">Working with Django Forms</h3>
+            <time class="note-date">Enero 2024</time>
+          </a>
+        </article>
       </section>
 
-      <section class="projects-section section">
+      <section class="section projects-section">
         <div class="home-section-header">
           <h2 class="section-title">$ ls ~/projects</h2>
           <a class="button" href="#">View all projects</a>
@@ -103,9 +109,9 @@
         <div class="projects-grid">
           <article class="project">
             <div class="project-date">Enero 2024</div>
-            <div class="project-title">
-              <a href="#">Django Simple Blog</a>
-            </div>
+            <a class="project-title-link" href="#"
+              ><h3 class="project-title">Django Simple Blog</h3></a
+            >
             <div class="project-short">
               A really simple Django blog inspired by WordPress
             </div>
@@ -117,9 +123,9 @@
           </article>
           <article class="project">
             <div class="project-date">Enero 2024</div>
-            <div class="project-title">
-              <a href="#">Django Simple Blog</a>
-            </div>
+            <a class="project-title-link" href="#"
+              ><h3 class="project-title">Django Simple Blog</h3></a
+            >
             <div class="project-short">
               A really simple Django blog inspired by WordPress
             </div>
@@ -131,9 +137,9 @@
           </article>
           <article class="project">
             <div class="project-date">Enero 2024</div>
-            <div class="project-title">
-              <a href="#">Django Simple Blog</a>
-            </div>
+            <a class="project-title-link" href="#"
+              ><h3 class="project-title">Django Simple Blog</h3></a
+            >
             <div class="project-short">
               A really simple Django blog inspired by WordPress
             </div>
@@ -145,9 +151,9 @@
           </article>
           <article class="project">
             <div class="project-date">Enero 2024</div>
-            <div class="project-title">
-              <a href="#">Django Simple Blog</a>
-            </div>
+            <a class="project-title-link" href="#"
+              ><h3 class="project-title">Django Simple Blog</h3></a
+            >
             <div class="project-short">
               A really simple Django blog inspired by WordPress
             </div>
@@ -159,9 +165,9 @@
           </article>
           <article class="project">
             <div class="project-date">Enero 2024</div>
-            <div class="project-title">
-              <a href="#">Django Simple Blog</a>
-            </div>
+            <a class="project-title-link" href="#"
+              ><h3 class="project-title">Django Simple Blog</h3></a
+            >
             <div class="project-short">
               A really simple Django blog inspired by WordPress
             </div>
@@ -173,9 +179,9 @@
           </article>
           <article class="project">
             <div class="project-date">Enero 2024</div>
-            <div class="project-title">
-              <a href="#">Django Simple Blog</a>
-            </div>
+            <a class="project-title-link" href="#"
+              ><h3 class="project-title">Django Simple Blog</h3></a
+            >
             <div class="project-short">
               A really simple Django blog inspired by WordPress
             </div>
@@ -188,29 +194,44 @@
         </div>
       </section>
 
-      <section class="tags-section">
+      <section class="section tags-section">
         <div class="home-section-header">
           <h2 class="section-title">$ ls ~/tags</h2>
           <a class="button" href="#">View all tags</a>
         </div>
 
         <div class="tags">
-          <a class="tag" href="#"><span class="hashtag">#</span>unix</a>
-
-          <a class="tag" href="#"><span class="hashtag">#</span>devops</a>
-
-          <a class="tag" href="#"><span class="hashtag">#</span>seo</a>
-
-          <a class="tag" href="#"><span class="hashtag">#</span>marketing</a>
-
-          <a class="tag" href="#"><span class="hashtag">#</span>misc</a>
-
-          <a class="tag" href="#"><span class="hashtag">#</span>python</a>
-
-          <a class="tag" href="#"><span class="hashtag">#</span>django</a>
-
-          <a class="tag" href="#"><span class="hashtag">#</span>archlinux</a>
-          <a class="tag" href="#"><span class="hashtag">#</span>homelab</a>
+          <a class="tag" href="#"
+            ><h3 class="tag-title"><span class="hashtag">#</span>unix</h3></a
+          >
+          <a class="tag" href="#"
+            ><h3 class="tag-title"><span class="hashtag">#</span>devops</h3></a
+          >
+          <a class="tag" href="#"
+            ><h3 class="tag-title"><span class="hashtag">#</span>seo</h3></a
+          >
+          <a class="tag" href="#"
+            ><h3 class="tag-title">
+              <span class="hashtag">#</span>marketing
+            </h3></a
+          >
+          <a class="tag" href="#"
+            ><h3 class="tag-title"><span class="hashtag">#</span>misc</h3></a
+          >
+          <a class="tag" href="#"
+            ><h3 class="tag-title"><span class="hashtag">#</span>python</h3></a
+          >
+          <a class="tag" href="#"
+            ><h3 class="tag-title"><span class="hashtag">#</span>django</h3></a
+          >
+          <a class="tag" href="#"
+            ><h3 class="tag-title">
+              <span class="hashtag">#</span>archlinux
+            </h3></a
+          >
+          <a class="tag" href="#"
+            ><h3 class="tag-title"><span class="hashtag">#</span>homelab</h3></a
+          >
         </div>
       </section>
 
